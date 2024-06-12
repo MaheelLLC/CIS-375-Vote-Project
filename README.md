@@ -1,2 +1,1 @@
-# voting_project
-CIS 375 Group Project
+# CIS 375 Vote Project
