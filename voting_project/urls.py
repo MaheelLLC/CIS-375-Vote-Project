@@ -17,8 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include  # Import include function
+from two_factor.urls import urlpatterns as tf_urls  # Import two-factor auth URLs
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Admin site URL
     path('vote/', include('vote_app.urls')),  # Include the vote_app URLs
+    path('accounts/', include('allauth.urls')),  # Include URLs from allauth for authentication
+    path('', include(tf_urls)),  # Include URLs for two-factor authentication
+    path('password_reset/', PasswordResetView.as_view(), name='password_reset'),  # Password reset URL
+    path('password_reset_confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),  # Password reset confirm URL
 ]
