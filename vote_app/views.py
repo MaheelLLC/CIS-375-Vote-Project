@@ -13,3 +13,11 @@ def index_id(request,id):
 
 def main(response):
     return HttpResponse("<h1>Main</h1>")
+
+#@login_required
+def dashboard(request):
+    return HttpResponse("<h1>Dashboard</h1>")
+
+#@login_required
+def about(request):
+    return HttpResponse("<h1>About</h1>")
