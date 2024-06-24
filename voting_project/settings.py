@@ -139,7 +139,7 @@ LOGIN_REDIRECT_URL = '/'
 
 # Email Backend Configuration (update with your email server settings)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'your_smtp_server'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'votingpollweb@gmail.com'

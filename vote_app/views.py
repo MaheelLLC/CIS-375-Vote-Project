@@ -12,12 +12,15 @@ def signup(request):
             user = form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
+            email = form.cleaned_data.get('email')
+            user.email = email  # Save email
+            user.save()  # Save user with email
             user = authenticate(username=username, password=password)
             login(request, user)
             return redirect('index')  # Redirect to a success page
     else:
         form = CustomUserCreationForm()
-    return render(request, 'vote_app/signup.html', {'form': form})  # Ensure the path is correct
+    return render(request, 'vote_app/signup.html', {'form': form})
 
 @login_required
 def index(request):

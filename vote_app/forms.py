@@ -3,9 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2')
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
@@ -14,6 +16,12 @@ class CustomUserCreationForm(UserCreationForm):
         if not username.isalnum():
             raise forms.ValidationError("The username should only contain letters and numbers.")
         return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is already registered.")
+        return email
 
     def clean_password1(self):
         password1 = self.cleaned_data.get('password1')
