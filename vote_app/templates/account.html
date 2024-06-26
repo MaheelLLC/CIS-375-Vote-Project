@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Voting Project</title>
+    <title>Account - Voting Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,9 +55,12 @@
         h1 {
             text-align: center;
         }
-        p {
-            margin: 20px 0;
-            line-height: 1.6;
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -68,31 +71,21 @@
     <div class="menu">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'create_poll' %}">Create Poll</a>
-        <a href="{% url 'about' %}" class="active">About</a>
-        <a href="{% url 'account' %}">Account</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'account' %}" class="active">Account</a>
     </div>
 </div>
 
 <div class="container">
-    <h1>About the Voting Project</h1>
-    <p>
-        Welcome to the Voting Project, an Online Voting System designed to provide a secure and user-friendly platform for online voting. Registered users can create and manage elections, join and vote in elections, and view election results once voting ends.
-    </p>
-    <p>
-        The system ensures the integrity and anonymity of votes, supporting a straightforward process for users to participate in elections securely.
-    </p>
-    <p>
-        Team Members:
-        <ul>
-            <li>Jacob Sampt</li>
-            <li>Husam Muthanna</li>
-            <li>Christopher Woods</li>
-            <li>Maheel Luqman</li>
-            <li>Mouhamad Hamzah Ismail</li>
-            <li>Nicholas Harrison</li>
-        </ul>
-    </p>
+    <h1>Account Settings</h1>
+    <ul>
+        <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+    </ul>
+    <a href="{% url 'change_password' %}" class="button">Change Password</a>
+    <a href="{% url 'manage_elections' %}" class="button">Manage Elections</a>
 </div>
 
 </body>
 </html>
+
