@@ -31,7 +31,8 @@ def manage_elections(request):
 
 @csrf_exempt
 def submit_poll(request):
-    if request.method == 'POST':
+    # POST requests occur when submitting a form
+    if request.method == 'POST': 
         # Process form data (save poll, update database, etc.)
         # Example: Save poll data to the database
         question1 = request.POST.get('question1')
@@ -47,7 +48,7 @@ def change_password(request):
 
 @csrf_exempt
 def submit_password(request):
-    # Handle POST request for changing password here
+    # POST requests occur when submitting a form
     if request.method == 'POST':
         # Process form data here
         # Redirect to homepage after processing
