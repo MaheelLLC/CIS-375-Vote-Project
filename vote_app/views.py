@@ -29,6 +29,7 @@ def create_poll(request):
 def manage_elections(request):
     return render(request, 'manage_elections.html')
 
+@csrf_exempt
 def submit_poll(request):
     if request.method == 'POST':
         # Process form data (save poll, update database, etc.)
@@ -50,7 +51,7 @@ def submit_password(request):
     if request.method == 'POST':
         # Process form data here
         # Redirect to homepage after processing
-        return redirect('home')  # Replace 'home' with the name of your homepage URL pattern
+        return redirect('home') 
     else:
         # Handle other HTTP methods as needed
         return redirect('home')  # Redirect to homepage for other methods
