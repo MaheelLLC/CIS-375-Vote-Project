@@ -4,6 +4,7 @@ from .models import Poll, Poll_Option
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from .forms import CustomUserCreationForm
+from django.views.decorators.csrf import csrf_exempt
 
 def signup(request):
     if request.method == 'POST':
@@ -44,3 +45,43 @@ def dashboard(request):
 @login_required
 def about(request):
     return HttpResponse("<h1>About</h1>")
+
+def homepage(request):
+    return render(request, 'homepage.html', {})
+
+def account(request):
+    return render(request, 'account.html')
+
+def create_poll(request):
+    return render(request, 'create_poll.html')
+
+def manage_elections(request):
+    return render(request, 'manage_elections.html')
+
+@csrf_exempt
+def submit_poll(request):
+    # POST requests occur when submitting a form
+    if request.method == 'POST':
+        # Process form data (save poll, update database, etc.)
+        # Example: Save poll data to the database
+        question1 = request.POST.get('question1')
+        option1_1 = request.POST.get('option1_1')
+
+        # Redirect to homepage after successful submission
+        return redirect('home')
+    return redirect('create_poll')
+
+def change_password(request):
+    # Handle change password logic
+    return render(request, 'change_password.html')
+
+@csrf_exempt
+def submit_password(request):
+    # POST requests occur when submitting a form
+    if request.method == 'POST':
+        # Process form data here
+        # Redirect to homepage after processing
+        return redirect('home')
+    else:
+        # Handle other HTTP methods as needed
+        return redirect('home')  # Redirect to homepage for other methods

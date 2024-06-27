@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="test commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2iC3PJyni3y5hmBZ1MJBPhgN290" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates\vote_app" />
+      <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates\registration" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="" />
+      <created>1718980706422</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718980706422</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Test commit">
+      <option name="closed" value="true" />
+      <created>1718986524759</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718986524759</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactored URL configurations: Moved vote_app URLs to its own urls.py for better modularity and maintainability.">
+      <option name="closed" value="true" />
+      <created>1718990862409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718990862409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added /dashboard and /about URLs with corresponding views in vote_app">
+      <option name="closed" value="true" />
+      <created>1718992822777</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718992822777</updated>
+    </task>
+    <task id="LOCAL-00004" summary="dd authentication and password reset functionality&#10;&#10;- Added django-allauth for user authentication&#10;- Configured email backend for password reset&#10;- Created templates for password reset: password_reset_email.html, password_reset_form.html, password_reset_confirm.html&#10;- Updated settings.py to include authentication backends and middleware&#10;- Set up URL patterns for login, logout, and password reset">
+      <option name="closed" value="true" />
+      <created>1718998532646</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718998532647</updated>
+    </task>
+    <task id="LOCAL-00005" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1718999097216</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718999097216</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implement Signup View and Template&#10;&#10;- Added `CustomUserCreationForm` in `forms.py` to enforce username and password restrictions.&#10;- Created `signup.html` template for user registration.&#10;- Updated `views.py` to include `signup` view for user registration.&#10;- Ensured template path in `settings.py` is correctly pointing to `vote_app/templates`.&#10;- Configured URL routing to include signup view in `vote_app/urls.py`.&#10;- Added necessary login restrictions using `@login_required` decorator for views.&#10;- Verified directory structure and paths for templates.">
+      <option name="closed" value="true" />
+      <created>1719260958221</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719260958221</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Enhance Signup with Email Field and Configure Password Reset&#10;&#10;- Updated `CustomUserCreationForm` in `forms.py` to include email field and validation.&#10;- Updated `signup.html` template to include email input field.&#10;- Modified `signup` view in `views.py` to handle and save email.&#10;- Configured email backend in `settings.py` for sending OTC emails.&#10;- Ensured password reset functionality is set up to use email for sending OTCs.">
+      <option name="closed" value="true" />
+      <created>1719261466109</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719261466109</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bug fix">
+      <option name="closed" value="true" />
+      <created>1719267971434</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719267971434</updated>
+    </task>
+    <task id="LOCAL-00009" summary="s">
+      <option name="closed" value="true" />
+      <created>1719503446583</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719503446583</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test commit">
+      <option name="closed" value="true" />
+      <created>1719503568144</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719503568144</updated>
+    </task>
+    <task id="LOCAL-00011" summary="test commit">
+      <option name="closed" value="true" />
+      <created>1719503713894</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719503713894</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="Refactored URL configurations: Moved vote_app URLs to its own urls.py for better modularity and maintainability." />
+    <MESSAGE value="Added /dashboard and /about URLs with corresponding views in vote_app" />
+    <MESSAGE value="dd authentication and password reset functionality&#10;&#10;- Added django-allauth for user authentication&#10;- Configured email backend for password reset&#10;- Created templates for password reset: password_reset_email.html, password_reset_form.html, password_reset_confirm.html&#10;- Updated settings.py to include authentication backends and middleware&#10;- Set up URL patterns for login, logout, and password reset" />
+    <MESSAGE value="Implement Signup View and Template&#10;&#10;- Added `CustomUserCreationForm` in `forms.py` to enforce username and password restrictions.&#10;- Created `signup.html` template for user registration.&#10;- Updated `views.py` to include `signup` view for user registration.&#10;- Ensured template path in `settings.py` is correctly pointing to `vote_app/templates`.&#10;- Configured URL routing to include signup view in `vote_app/urls.py`.&#10;- Added necessary login restrictions using `@login_required` decorator for views.&#10;- Verified directory structure and paths for templates." />
+    <MESSAGE value="Enhance Signup with Email Field and Configure Password Reset&#10;&#10;- Updated `CustomUserCreationForm` in `forms.py` to include email field and validation.&#10;- Updated `signup.html` template to include email input field.&#10;- Modified `signup` view in `views.py` to handle and save email.&#10;- Configured email backend in `settings.py` for sending OTC emails.&#10;- Ensured password reset functionality is set up to use email for sending OTCs." />
+    <MESSAGE value="bug fix" />
+    <MESSAGE value="s" />
+    <MESSAGE value="test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+  </component>
+</project>

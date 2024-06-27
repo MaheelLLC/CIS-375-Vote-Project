@@ -20,7 +20,6 @@ from django.urls import path, include
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from two_factor.urls import urlpatterns as tf_urls
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),  # Admin site URL
     path('vote/', include('vote_app.urls')),  # Include the vote_app URLs
