@@ -23,28 +23,28 @@ def signup(request):
         form = CustomUserCreationForm()
     return render(request, 'vote_app/signup.html', {'form': form})
 
-@login_required
+#@login_required
 def index(request):
     ls = Poll.objects.all()  # Retrieve all objects from Poll model
     output = ', '.join([p.name for p in ls])  # Example of accessing attribute, adjust as per your model fields
     return HttpResponse("<h1>%s</h1>" % output)
 
-@login_required
+#@login_required
 def index_id(request, id):
     ls = Poll.objects.get(id=id)  # Retrieve all objects from Poll model
     return HttpResponse("<h1>%s</h1>" % ls.name)
 
-@login_required
+#@login_required
 def main(response):
     return HttpResponse("<h1>Main</h1>")
 
-@login_required
+#@login_required
 def dashboard(request):
     return HttpResponse("<h1>Dashboard</h1>")
 
-@login_required
+#@login_required
 def about(request):
-    return HttpResponse("<h1>About</h1>")
+    return render(request, 'vote_app/about.html')
 
 def homepage(request):
     return render(request, 'homepage.html', {})

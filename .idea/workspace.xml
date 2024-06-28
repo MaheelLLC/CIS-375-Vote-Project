@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="test commit" />
+    <list default="true" id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="first commit and push">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vote_app/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/vote_app/templates/vote_app/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vote_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vote_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voting_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/voting_project/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,14 +43,45 @@
     &quot;Python.urls.executor&quot;: &quot;Run&quot;,
     &quot;Python.views.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates\vote_app" />
+      <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates" />
       <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates\registration" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="urls" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Voting_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/voting_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/voting_project/urls.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.urls" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -149,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719503713894</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="first commit and push">
+      <option name="closed" value="true" />
+      <created>1719514191959</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719514191959</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +219,7 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="s" />
     <MESSAGE value="test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit" />
+    <MESSAGE value="first commit and push" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit and push" />
   </component>
 </project>
