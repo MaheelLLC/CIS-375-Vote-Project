@@ -30,20 +30,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'vote_app.apps.VoteAppConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_otp',
-    'django_otp.plugins.otp_totp',
-    'two_factor',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'django_extensions',
+    'vote_app.apps.VoteAppConfig',  # Your app
+    'django.contrib.admin',  # Admin site
+    'django.contrib.auth',  # Authentication framework
+    'django.contrib.contenttypes',  # Content types framework
+    'django.contrib.sessions',  # Session framework
+    'django.contrib.messages',  # Messaging framework
+    'django.contrib.staticfiles',  # Static files handling
+    'django_otp',  # OTP (One Time Password)
+    'django_otp.plugins.otp_totp',  # TOTP (Time-based One Time Password) plugin for OTP
+    'two_factor',  # Two-factor authentication
+    'allauth',  # Django Allauth
+    'allauth.account',  # Allauth account management
+    'allauth.socialaccount',  # Allauth social account management
+    'django_extensions',  # Django extensions for additional management commands
 ]
 
 MIDDLEWARE = [
@@ -137,6 +137,15 @@ SITE_ID = 1
 
 LOGIN_URL = 'two_factor:login'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'account_login'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_SESSION_REMEMBER = True
 
 # Email Backend Configuration (update with your email server settings)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

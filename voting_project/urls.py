@@ -18,6 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
+
 from two_factor.urls import urlpatterns as tf_urls
 
 urlpatterns = [
