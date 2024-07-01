@@ -56,3 +56,4 @@ def submit_password(request):
     else:
         # Handle other HTTP methods as needed
         return redirect('home')  # Redirect to homepage for other methods
+
