@@ -52,47 +52,47 @@ def register_view(request):
         form = CustomUserCreationForm()
     return render(request, 'vote_app/registerPage.html', {'form': form})
 
-#@login_required
+@login_required
 def index(request):
     ls = Poll.objects.all()  # Retrieve all objects from Poll model
     output = ', '.join([p.name for p in ls])  # Example of accessing attribute, adjust as per your model fields
     return HttpResponse("<h1>%s</h1>" % output)
 
-#@login_required
+@login_required
 def index_id(request, id):
     ls = Poll.objects.get(id=id)  # Retrieve all objects from Poll model
     return HttpResponse("<h1>%s</h1>" % ls.name)
 
-#@login_required
+@login_required
 def main(response):
     return HttpResponse("<h1>Main</h1>")
 
-#@login_required
+@login_required
 def dashboard(request):
     return HttpResponse("<h1>Dashboard</h1>")
 
-#@login_required
+@login_required
 def about(request):
     return render(request, 'vote_app/about.html')
 
-#@login_required
+@login_required
 def homepage(request):
     return render(request, 'homepage.html', {})
 
-#@login_required
+@login_required
 def account(request):
     return render(request, 'account.html')
 
-#@login_required
+@login_required
 def create_poll(request):
     return render(request, 'create_poll.html')
 
-#@login_required
+@login_required
 def manage_elections(request):
     return render(request, 'manage_elections.html')
 
 @csrf_exempt
-#@login_required
+@login_required
 def submit_poll(request):
     # POST requests occur when submitting a form
     if request.method == 'POST':
@@ -105,13 +105,13 @@ def submit_poll(request):
         return redirect('home')
     return redirect('create_poll')
 
-#@login_required
+@login_required
 def change_password(request):
     # Handle change password logic
     return render(request, 'change_password.html')
 
 @csrf_exempt
-#@login_required
+@login_required
 def submit_password(request):
     # POST requests occur when submitting a form
     if request.method == 'POST':
