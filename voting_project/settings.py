@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',  # Static files handling
     'django_otp',  # OTP (One Time Password)
     'django_otp.plugins.otp_totp',  # TOTP (Time-based One Time Password) plugin for OTP
-    # 'two_factor',  # Two-factor authentication
+    'two_factor',  # Two-factor authentication
     'allauth',  # Django Allauth
     'allauth.account',  # Allauth account management
     'allauth.socialaccount',  # Allauth social account management

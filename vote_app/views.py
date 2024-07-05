@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Poll, Poll_Option
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -22,6 +23,35 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'vote_app/signup.html', {'form': form})
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'vote_app/loginPage.html', {'form': form})
+
+def register_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'vote_app/registerPage.html', {'form': form})
 
 @login_required
 def index(request):

@@ -1,3 +1,52 @@
-virtual_env/.idea/workspace.xml
-*.pyc
+# .gitignore
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Static files
+staticfiles/
+*.css
+*.scss
+*.less
+*.js
+*.html
+.sass-cache/
+
+# Media files
+media/
+
+# VSCode files
+.vscode/
+
+# PyCharm files
+.idea/
+
+# macOS files
+.DS_Store
