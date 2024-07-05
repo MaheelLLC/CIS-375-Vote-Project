@@ -12,7 +12,7 @@ class LoginRequiredMiddleware:
 
     def __init__(self, get_response):
         self.get_response = get_response
-        self.exempt_urls = [reverse('login'), reverse('signup')]
+        self.exempt_urls = [reverse('login'), reverse('register')]  # Removed reverse('signup')
         # Add other URLs that should be exempt from login requirement here
         if hasattr(settings, 'LOGIN_EXEMPT_URLS'):
             self.exempt_urls += [url for url in settings.LOGIN_EXEMPT_URLS]

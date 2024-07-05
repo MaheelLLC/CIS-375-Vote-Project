@@ -16,7 +16,6 @@ urlpatterns = [
     path('index/<int:id>/', login_required(views.index_id), name='index_id'),  # URL with an integer ID
     path('main/', login_required(views.main), name='main'),  # Additional URL for the 'main' view
     path('dashboard/', login_required(views.dashboard), name='dashboard'),  # URL for the 'dashboard' view
-    path('signup/', views.signup, name='signup'),  # Signup URL without login required
     path('login/', views.login_view, name='login'),  # Login URL without login required
     path('register/', views.register_view, name='register'),  # Register URL without login required
     path('accounts/', include('allauth.urls')),  # Include allauth URLs for authentication

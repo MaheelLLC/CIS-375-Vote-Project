@@ -7,22 +7,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
-def signup(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            email = form.cleaned_data.get('email')
-            user.email = email  # Save email
-            user.save()  # Save user with email
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('index')  # Redirect to a success page
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'vote_app/signup.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
