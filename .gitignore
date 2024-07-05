@@ -1,5 +1,3 @@
-# .gitignore
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -36,7 +34,6 @@ staticfiles/
 *.scss
 *.less
 *.js
-*.html
 .sass-cache/
 
 # Media files

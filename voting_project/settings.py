@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'allauth.account',  # Allauth account management
     'allauth.socialaccount',  # Allauth social account management
     'django_extensions',  # Django extensions for additional management commands
-    
-    
 ]
 
 MIDDLEWARE = [
@@ -58,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'vote_app.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'voting_project.urls'
@@ -137,9 +136,18 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-LOGIN_URL = 'two_factor:login'
+LOGIN_EXEMPT_URLS = [
+    '/password_reset/',
+    '/password_reset_confirm/',  # This can be more specific if needed
+    '/signup/',
+    '/login/',
+    '/register/',
+]
+
+
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'account_login'
+LOGOUT_REDIRECT_URL = 'login'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
