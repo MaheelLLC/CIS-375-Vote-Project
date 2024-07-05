@@ -1,0 +1,3 @@
+virtual_env/.idea/workspace.xml
+*.pyc
+__pycache__/

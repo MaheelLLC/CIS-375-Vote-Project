@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="git commit -m &quot;Add URL viewing app and fix template path for 'about' page&quot;">
+    <list default="true" id="26ee6efd-19ce-4dc8-92dc-6e945910586d" name="Changes" comment="Merged Husam's branch">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vote_app/templates/loginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vote_app/templates/registerPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vote_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vote_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vote_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vote_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voting_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/voting_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voting_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/voting_project/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vote_app/templates/change_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/vote_app/templates/change_password.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +37,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.django server.executor&quot;: &quot;Run&quot;,
-    &quot;Python.urls.executor&quot;: &quot;Run&quot;,
-    &quot;Python.views.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.django server.executor": "Run",
+    "Python.urls.executor": "Run",
+    "Python.views.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\raspb\OneDrive\Desktop\studies\U_of_M_dearborn\2023-2024\Summer_2024\CIS_375\Django\Project\Voting_project\vote_app\templates\vote_app" />
@@ -258,6 +258,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="first commit and push" />
     <MESSAGE value="git commit -m &quot;Add URL viewing app and fix template path for 'about' page&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;Add URL viewing app and fix template path for 'about' page&quot;" />
+    <MESSAGE value="test" />
+    <MESSAGE value="Merged Husam's branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged Husam's branch" />
   </component>
 </project>
