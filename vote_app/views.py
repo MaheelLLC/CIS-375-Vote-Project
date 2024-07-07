@@ -29,6 +29,9 @@ def create_poll(request):
 def manage_elections(request):
     return render(request, 'manage_elections.html')
 
+def electionPage(request):
+    return render(request, 'electionPage.html')
+
 @csrf_exempt
 def submit_poll(request):
     # POST requests occur when submitting a form
