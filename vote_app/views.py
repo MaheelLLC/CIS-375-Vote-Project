@@ -68,6 +68,10 @@ def account(request):
     return render(request, 'account.html')
 
 @login_required
+def electionPage(request):
+    return render(request, 'electionPage.html')
+
+@login_required
 def create_poll(request):
     return render(request, 'create_poll.html')
 
