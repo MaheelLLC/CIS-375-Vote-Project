@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load custom_filters %}
+
+<div class="container result-container">
+  <div class="sub-container">
+    <h2>Results</h2>
+    <h4>{{poll.title}}</h4>
+    <br>
+    <h5>Total Votes = {{poll.total_vote}}</h5>
+    <br>
+
+    {% for option in options %}
+
+    {% comment %} It checks if the user exists and has voted in this poll by checking all voters of the poll {% endcomment %}
+      {% if request.user|has_voted:option.voters.all %}
+      
+        <small>{{option.title}} --- {{option.total_vote}} vote{{item.total_vote|pluralize:",s"}} --- <strong>[voted]</strong></small>
+        <div class="progress-container">
+          <div class="progress">
+            <div 
+              class="progress-bar" 
+              role="progressbar"
+              style="width: {{option.percent_vote | floatformat:2}}%;"
+            >
+            {{option.percent_vote | floatformat:2}}%
+            </div> 
+          </div>
+        </div>
+        <br>
+
+      {% else %}
+
+        <small>{{option.title}} --- {{option.total_vote}} vote{{item.total_vote|pluralize:",s"}}</small>
+        <div class="progress-container">
+          <div class="progress">
+            <div 
+              class="progress-bar" 
+              role="progressbar"
+              style="width: {{option.percent_vote | floatformat:2}}%;"
+            >
+            {{option.percent_vote | floatformat:2}}%
+            </div> 
+          </div>
+        </div>
+        <br>
+
+      {% endif %}
+
+    {% endfor %}
+
+    <h5 style="font-weight: bold">Thank you for voting</h5>
+  </div>
+</div>
+
+{% endblock content %}

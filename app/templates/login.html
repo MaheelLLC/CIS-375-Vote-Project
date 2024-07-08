@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formContainer">
+  <form action="" class="userForm" method="POST">
+    <h4>Login</h4>
+
+    {% if msg != "" %}
+    
+      <div class="alert alert-danger" role="alert">
+        {{msg}}
+      </div>
+      
+    {% endif %}
+
+    {% csrf_token %}
+
+    {% if reuqest.GET.next %}
+
+      <input type="hidden" name="next" value={{reuqest.GET.next}}>
+
+    {% endif %}
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" placeholder="Enter Password" id="password">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Login</button>
+    <p style="text-align: center;">Don't have an account? <a href="{% url "signup" %}">Signup</a></p>
+  </form>
+</div>
+
+{% endblock content %}

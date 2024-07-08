@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="formContainer">
+  {% comment %} action="" : send the form content to the same url you are on 
+  now. The view function for this url and html file will handle it. {% endcomment %}
+  <form action="" class="userForm" method="POST">
+    <h4>Sign Up</h4>
+    {% csrf_token %}
+
+    {% for field in form %}
+
+      {% if field.errors %}
+
+        <div class="mb-3">
+          {{field.label}}<br>
+          {{field}}
+          <small class="error">{{field.errors}}</small>
+        </div>
+
+      {% else %}
+        {% comment %} Each field in UserCreationForm is an html input {% endcomment %}
+        <div class="mb-3">
+          {{field.label}}<br>
+          {{field}}
+        </div>
+        
+      {% endif %}
+
+    {% endfor %}
+
+    <button class="btn btn-primary" type="submit">Register</button>
+    <p style="text-align: center;">Already have an account? <a href="{% url "login" %}">Login</a></p>
+  </form>
+</div>
+
+<script>
+  let formContainer = document.querySelector(".formContainer");
+  // inputs may seem non-existent but Django dynamically makes them using
+  // the form context (UserCreationForm)
+  let inputs = formContainer.querySelectorAll("input");
+  // Bootstrap's form-control class is used on all input fields to make them 
+  // look nice
+  for (let input of inputs) {
+    input.classList.add("form-control");
+  }
+</script>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container vote-container">
+  <h2>Pick Your Option</h2>
+  <h4>{{poll.question}}</h4>
+
+  {% if msg %}
+  
+    <div class="alert alert-primary" role="alert">
+      You have already voted for this poll
+    </div>
+    <a href="{% url "results" poll.slug %}" class="btn btn-primary">See Results</a>
+  
+  {% else %}
+
+    <form action="" method="POST">
+
+      {% csrf_token %}
+
+      {% for option in options %}
+
+        <div class="form-check">
+          <label for="{{option.id}}" class="form-check-label">{{option.name}}</label>
+          <input type="radio" class="form-check-input" value="{{option.id}}" name="option" id="{{option.id}}" required>
+        </div>
+      
+      {% endfor %}
+
+      <button type="submit" name="vote" class="btn btn-primary submit-button">Submit</button>
+    </form>
+
+  {% endif %}
+
+  {% if user.is_authenticated and user == poll.owner %}
+
+    <form action="" method="POST">
+    
+      {% csrf_token %}
+
+      <button type="submit" name="delete_poll" class="btn btn-primary">Delete Poll</button>
+    </form>
+
+  {% endif %}
+</div>
+
+{% endblock content %}
