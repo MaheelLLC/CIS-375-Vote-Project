@@ -79,7 +79,7 @@
 <div class="container">
     <h1>Account Settings</h1>
     <ul>
-        <li><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+        <li><strong>Username:</strong> {{ user.username }} {{ user.last_name }}</li>
         <li><strong>Email:</strong> {{ user.email }}</li>
     </ul>
     <a href="{% url 'change_password' %}" class="button">Change Password</a>
