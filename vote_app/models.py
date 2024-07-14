@@ -8,9 +8,9 @@ class Poll(models.Model):
         return self.name
 
 class Poll_Option(models.Model):
-    Poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
-    text = models.CharField(max_length= 200)
+    poll = models.ForeignKey(Poll, on_delete=models.CASCADE)
+    text = models.CharField(max_length=200)
     votes = models.IntegerField()
 
     def __str__(self):
-        return Poll_Option.text
+        return self.text

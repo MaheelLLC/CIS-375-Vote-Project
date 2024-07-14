@@ -58,10 +58,32 @@
     </div>
 </div>
 
-<div class="content">
+<!-- <div class="content">
     <h1>This is the Home Page</h1>
     <p>This is where all the active polls will be located</p>
+</div> -->
+<div class="content">
+    <form action="{% url 'delete_polls' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete All Polls</button>
+    </form>
+    <h1>Active Polls</h1>
+    {% if polls %}
+        {% for poll in polls%}
+            <div class="poll">
+                <h2>{{ poll.name }}</h2>
+                <ul>
+                    {% for option in poll.poll_option_set.all %}
+                        <li>{{ option.text }} - Votes: {{ option.votes }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No active polls available.</p>
+    {% endif %}
 </div>
 
+</div>
 </body>
 </html>

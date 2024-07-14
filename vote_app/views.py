@@ -8,6 +8,7 @@ from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -41,10 +42,14 @@ def register_view(request):
     return render(request, 'vote_app/registerPage.html', {'form': form})
 
 @login_required
+# def index(request):
+#     ls = Poll.objects.all()  # Retrieve all objects from Poll model
+#     output = ', '.join([p.name for p in ls])  # Example of accessing attribute, adjust as per your model fields
+#     return HttpResponse("<h1>%s</h1>" % output)
+
 def index(request):
-    ls = Poll.objects.all()  # Retrieve all objects from Poll model
-    output = ', '.join([p.name for p in ls])  # Example of accessing attribute, adjust as per your model fields
-    return HttpResponse("<h1>%s</h1>" % output)
+    polls = Poll.objects.all()  # Retrieve all polls from the database
+    return render(request, 'homepage.html', {'polls': polls})
 
 @login_required
 def index_id(request, id):
@@ -65,7 +70,8 @@ def about(request):
 
 @login_required
 def homepage(request):
-    return render(request, 'homepage.html', {})
+    polls = Poll.objects.all()  # Fetch all Poll objects from the database
+    return render(request, 'homepage.html' , {'polls': polls})
 
 @login_required
 def account(request):
@@ -83,19 +89,50 @@ def create_poll(request):
 def manage_elections(request):
     return render(request, 'manage_elections.html')
 
-@csrf_exempt
+# @csrf_exempt
+# @login_required
+# def submit_poll(request):
+#     # POST requests occur when submitting a form
+#     if request.method == 'POST':
+#         # Process form data (save poll, update database, etc.)
+#         # Example: Save poll data to the database
+#         question1 = request.POST.get('question1')
+#         option1_1 = request.POST.get('option1_1')
+
+#         # Redirect to homepage after successful submission
+#         return redirect('home')
+#     return redirect('create_poll')
+
+@csrf_exempt  # Only for demonstration; use proper CSRF protection in production
 @login_required
 def submit_poll(request):
-    # POST requests occur when submitting a form
     if request.method == 'POST':
-        # Process form data (save poll, update database, etc.)
-        # Example: Save poll data to the database
-        question1 = request.POST.get('question1')
-        option1_1 = request.POST.get('option1_1')
+        question = request.POST.get('question1')
+        option1 = request.POST.get('option1_1')
+        option2 = request.POST.get('option1_2')
 
-        # Redirect to homepage after successful submission
-        return redirect('home')
-    return redirect('create_poll')
+        # Create a new Poll instance
+        poll = Poll.objects.create(name=question)
+
+        # Create PollOption instances associated with the poll
+        Poll_Option.objects.create(poll=poll, text=option1, votes=0)
+        Poll_Option.objects.create(poll=poll, text=option2, votes=0)
+        all_polls = Poll.objects.all()
+        # Print each poll's name
+        for poll in all_polls:
+            print(f"Poll ID: {poll.id}, Name: {poll.name}")
+
+
+        return redirect('home')  # Redirect to home page or wherever appropriate
+    else:
+        return redirect('create_poll')  # Redirect back to create poll page if not a POST request
+
+
+@csrf_exempt  
+@login_required
+def delete_all_polls(request):
+    Poll.objects.all().delete()
+    return redirect('home') 
 
 @login_required
 def change_password(request):

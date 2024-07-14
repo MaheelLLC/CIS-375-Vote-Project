@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+
 from . import views
 
 urlpatterns = [
@@ -8,6 +9,7 @@ urlpatterns = [
     path('about/', login_required(views.about), name='about'),
     path('account/', login_required(views.account), name='account'),
     path('create-poll/', login_required(views.create_poll), name='create_poll'),
+    path('delete_polls/', login_required(views.delete_all_polls), name='delete_polls'),
     path('submit-poll/', login_required(views.submit_poll), name='submit_poll'),
     path('electionPage/', login_required(views.electionPage), name='electionPage'),
     path('manage-elections/', login_required(views.manage_elections), name='manage_elections'),
