@@ -72,6 +72,7 @@
         {% for poll in polls%}
             <div class="poll">
                 <h2>{{ poll.name }}</h2>
+                <i>{{poll.user}}</i>
                 <ul>
                     {% for option in poll.poll_option_set.all %}
                         <li>{{ option.text }} - Votes: {{ option.votes }}</li>

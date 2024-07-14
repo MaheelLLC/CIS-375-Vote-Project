@@ -112,7 +112,9 @@ def submit_poll(request):
         option2 = request.POST.get('option1_2')
 
         # Create a new Poll instance
-        poll = Poll.objects.create(name=question)
+        user = request.user
+        poll = Poll.objects.create(name=question, user = user)
+        
 
         # Create PollOption instances associated with the poll
         Poll_Option.objects.create(poll=poll, text=option1, votes=0)
