@@ -110,6 +110,7 @@ def manage_elections(request):
 def submit_poll(request):
     if request.method == 'POST':
         question = request.POST.get('question1')
+        # options = request.POST.getlist("options")
         option1 = request.POST.get('option1_1')
         option2 = request.POST.get('option1_2')
 
@@ -154,3 +155,35 @@ def submit_password(request):
     else:
         # Handle other HTTP methods as needed
         return redirect('home')  # Redirect to homepage for other methods
+
+def vote(request, slug):
+    poll = Poll.objects.get(slug=slug)
+    options = Poll_Option.objects.filter(poll=poll)
+    
+    msg = None
+    
+    if poll.voters.filter(id=request.user.id).exists():
+        msg = 'voted'
+        
+    if request.method == 'POST':
+        # selected option is the option id sent from template
+        selected_option = request.POST.get("option")
+        # option is the object that has that id
+        option = Poll_Option.objects.get(id=selected_option)
+        
+        option.votes += 1
+        # add user to list of people who already voted
+        poll.voters.add(request.user)
+        
+        option.save()
+        poll.save()
+        
+    context = {"poll": poll, "options": options, "msg": msg}
+    
+    return render(request, "vote.html", context)
+    
+
+    
+        
+    
+        
