@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+
     <title>Create Poll - Voting Project</title>
     <style>
         body {
@@ -116,19 +113,8 @@
             margin-left: 10px;
         }
     </style>
-    <!--function addOption(questionNumber) was here-->
 </head>
 <body>
-
-<div class="navbar">
-    <div class="title">Voting Project</div>
-    <div class="menu">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'create_poll' %}">Create Poll</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'account' %}">Account</a>
-    </div>
-</div>
 
 <div class="container">
     <h1>Create Poll</h1>
@@ -155,5 +141,3 @@
     </form>
 </div>
 
-</body>
-</html>
