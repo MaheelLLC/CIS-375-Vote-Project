@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('', login_required(views.homepage), name='home'),
+    path('', login_required(views.electionPage), name='home'),
     path('about/', login_required(views.about), name='about'),
     path('account/', login_required(views.account), name='account'),
     path('create-poll/', login_required(views.create_poll), name='create_poll'),
