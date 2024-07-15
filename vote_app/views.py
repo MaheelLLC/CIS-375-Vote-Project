@@ -50,6 +50,7 @@ def register_view(request):
 def index(request):
     polls = Poll.objects.all()  # Retrieve all polls from the database
     return render(request, 'homepage.html', {'polls': polls})
+    
 
 @login_required
 def index_id(request, id):
@@ -79,7 +80,8 @@ def account(request):
 
 @login_required
 def electionPage(request):
-    return render(request, 'electionPage.html')
+    polls = Poll.objects.all()  # Fetch all Poll objects from the database
+    return render(request, 'electionPage.html' , {'polls': polls})
 
 @login_required
 def create_poll(request):

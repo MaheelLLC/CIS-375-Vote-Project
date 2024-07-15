@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,15 +78,7 @@
 </head>
 <body>
 
-<div class="navbar">
-    <div class="title">Voting Project</div>
-    <div class="menu">
-        <a href="{% url 'electionPage' %}">Election Page</a>
-        <a href="{% url 'create_poll' %}">Create Poll</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'account' %}">Account</a>
-    </div>
-</div>
+{% include 'navbar.html' %}
 
 <div class="container">
     <h1>Manage Elections</h1>
@@ -110,4 +100,3 @@
 
 </body>
 </html>
-

@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Active Elections - Voting Project</title>
+    <title>Voting Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
         .navbar {
             overflow: hidden;
@@ -94,19 +93,23 @@
         .election-item li {
             margin-bottom: 10px;
         }
+        .vote-link {
+            display: inline-block;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .vote-link:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 
-<div class="navbar">
-    <div class="title">Voting Project</div>
-    <div class="menu">
-        <a href="{% url 'electionPage' %}">Election Page</a>
-        <a href="{% url 'create_poll' %}">Create Poll</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'account' %}">Account</a>
-    </div>
-</div>
+{% include 'navbar.html' %}
 
 <div class="container">
     <h1>Active Elections</h1>
@@ -118,61 +121,24 @@
     </div>
     
     <div class="election-list">
-        <!-- Example active elections -->
-        <div class="election-item">
-            <strong>Election Name: Election 1</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 2</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 3</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 4</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 5</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 6</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 7</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 8</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
-        <div class="election-item">
-            <strong>Election Name: Election 9</strong>
-            <ul>
-                <li><a href="#">Vote</a></li>
-            </ul>
-        </div>
+        {% if polls %}
+            {% for poll in polls %}
+                <div class="election-item">
+                    <h2>{{ poll.name }}</h2>
+                    <i>{{ poll.user }}</i>
+                    <ul>
+                        {% for option in poll.poll_option_set.all %}
+                            <li>{{ option.text }} - Votes: {{ option.votes }}</li>
+                        {% endfor %}
+                    </ul>
+                    <ul>
+                        <li><a href="#" class="vote-link">Vote</a></li>
+                    </ul>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No active polls available.</p>
+        {% endif %}
     </div>
 </div>
 
