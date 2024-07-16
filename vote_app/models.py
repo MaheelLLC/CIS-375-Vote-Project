@@ -7,14 +7,14 @@ from django.contrib.auth.models import User
 class Poll(models.Model):
     name = models.CharField(max_length= 200)
     user = models.CharField(max_length= 200, default="")
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length= 200, default='default-slug')
     voters = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.name
     
     def save(self, *args, **kwargs):
-        if not self.slug:
+        if not self.slug or self.slug == 'default-slug':
             self.slug = slugify(self.name)
             original_slug = self.slug
             
