@@ -28,14 +28,6 @@ db.sqlite3-journal
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Static files
-staticfiles/
-*.css
-*.scss
-*.less
-*.js
-.sass-cache/
-
 # Media files
 media/
 
