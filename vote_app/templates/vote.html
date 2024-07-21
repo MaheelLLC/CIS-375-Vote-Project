@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container vote-container">
 
     {% if msg %}
         <div class="alert alert-primary" role="alert">
@@ -16,7 +16,7 @@
 
         {% csrf_token %}
         
-        <div class="vote-container">
+        <div class="poll-container">
             <h4>{{poll.name}}</h4>
 
             {% for option in options %}
