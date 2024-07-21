@@ -79,7 +79,7 @@ def account(request):
 @login_required
 def electionPage(request):
     polls = Poll.objects.all()  # Fetch all Poll objects from the database
-    return render(request, 'election_Page.html' , {'polls': polls})
+    return render(request, 'election_page.html' , {'polls': polls})
 
 @login_required
 def create_poll(request):
