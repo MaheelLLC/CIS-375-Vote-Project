@@ -175,6 +175,8 @@ def vote(request, slug):
         
         option.save()
         poll.save()
+        # redirect to results when it exists
+        return redirect('home')
         
     context = {"poll": poll, "options": options, "msg": msg}
     

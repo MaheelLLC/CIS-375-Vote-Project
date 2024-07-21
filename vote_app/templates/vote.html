@@ -3,28 +3,33 @@
 {% block content %}
 
 <div class="container">
-    <h1>Create Poll</h1>
-    <form method="POST" action="{% url 'submit_poll' %}">
-        <div id="questions-container">
-            <div class="question-block">
-                <label for="question1">Question 1:</label>
-                <input type="text" id="question1" name="question1" required>
-                <div id="options-container1">
-                    <div class="option-container">
-                        <label for="option1_1" class="option-label">Option 1:</label>
-                        <input type="text" id="option1_1" name="option1_1" class="option-input" required>
-                    </div>
-                    <div class="option-container">
-                        <label for="option1_2" class="option-label">Option 2:</label>
-                        <input type="text" id="option1_2" name="option1_2" class="option-input" required>
-                    </div>
-                </div>
+
+    {% if msg %}
+        <div class="alert alert-primary" role="alert">
+            You have already voted for this poll
+        </div>
+        {% comment %} <a href="{% url "results" poll.slug %}" class="btn btn-primary">See Results</a> {% endcomment %}
+    {% else %}
+
+    <h1>Vote on Poll</h1>
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        
+        <div class="vote-container">
+            <h4>{{poll.name}}</h4>
+
+            {% for option in options %}
+            <div class="options-container">
+                <label for="{{option.id}}" class="option-label">{{option.text}}</label>
+                <input type="radio" id="{{option.id}}" value="{{option.id}}" name="option" class="option-input">
             </div>
+
+            {% endfor %}
         </div>
-        <div class="button-group">
-            <button type="submit" class="publish">Vote</button>
-        </div>
+        <button type="submit" class="publish">Vote</button>
     </form>
+    {% endif %}
 </div>
 
 {% endblock content %}
