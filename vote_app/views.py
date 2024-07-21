@@ -181,9 +181,3 @@ def vote(request, slug):
     context = {"poll": poll, "options": options, "msg": msg}
     
     return render(request, "vote.html", context)
-    
-
-    
-        
-    
-        

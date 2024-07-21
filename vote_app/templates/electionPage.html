@@ -133,7 +133,7 @@
                         {% endfor %}
                     </ul>
                     <ul>
-                        <li><a href="#" class="vote-link">Vote</a></li>
+                        <li><a href="{% url "vote" poll.slug %}" class="vote-link">Vote</a></li>
                     </ul>
                 </div>
             {% endfor %}
