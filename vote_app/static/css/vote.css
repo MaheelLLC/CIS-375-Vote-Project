@@ -1,3 +1,23 @@
-.vote-container {
-	text-align: center;
+.vote-container  {
+	text-items: center;
+}
+
+.poll-container {
+	text-items: center;
+}
+
+.options-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.option-label {
+	margin-right: 10px;
+     font-weight: normal;
+}
+
+.publish {
+	background-color: #333;
+     color: white;
 }
