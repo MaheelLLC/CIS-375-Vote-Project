@@ -68,7 +68,7 @@ def about(request):
     return render(request, 'vote_app/about.html')
 
 @login_required
-def homepage(request):
+def home_page(request):
     polls = Poll.objects.all()  # Fetch all Poll objects from the database
     return render(request, 'home_page.html' , {'polls': polls})
 
@@ -77,7 +77,7 @@ def account(request):
     return render(request, 'account.html')
 
 @login_required
-def electionPage(request):
+def election_page(request):
     polls = Poll.objects.all()  # Fetch all Poll objects from the database
     return render(request, 'election_page.html' , {'polls': polls})
 
