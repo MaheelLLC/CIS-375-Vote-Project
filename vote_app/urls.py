@@ -5,13 +5,13 @@ from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('', login_required(views.electionPage), name='home'),
+    path('', login_required(views.election_page), name='home'),
     path('about/', login_required(views.about), name='about'),
     path('account/', login_required(views.account), name='account'),
     path('create-poll/', login_required(views.create_poll), name='create_poll'),
     path('delete_polls/', login_required(views.delete_all_polls), name='delete_polls'),
     path('submit-poll/', login_required(views.submit_poll), name='submit_poll'),
-    path('electionPage/', login_required(views.electionPage), name='electionPage'),
+    path('election_page/', login_required(views.electionPage), name='election_page'),
     path('manage-elections/', login_required(views.manage_elections), name='manage_elections'),
     path('change-password/', login_required(views.change_password), name='change_password'),
     path('submit-password/', login_required(views.submit_password), name='submit_password'),

@@ -7,8 +7,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
-
-
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -21,7 +19,7 @@ def login_view(request):
                 return redirect('home')
     else:
         form = AuthenticationForm()
-    return render(request, 'vote_app/loginPage.html', {'form': form})
+    return render(request, 'vote_app/login_page.html', {'form': form})
 
 def register_view(request):
     if request.method == 'POST':
@@ -39,7 +37,7 @@ def register_view(request):
             print("Form errors:", form.errors)
     else:
         form = CustomUserCreationForm()
-    return render(request, 'vote_app/registerPage.html', {'form': form})
+    return render(request, 'vote_app/register_page.html', {'form': form})
 
 @login_required
 # def index(request):
@@ -49,8 +47,7 @@ def register_view(request):
 
 def index(request):
     polls = Poll.objects.all()  # Retrieve all polls from the database
-    return render(request, 'homepage.html', {'polls': polls})
-    
+    return render(request, 'home_page.html', {'polls': polls})
 
 @login_required
 def index_id(request, id):
@@ -72,16 +69,16 @@ def about(request):
 @login_required
 def homepage(request):
     polls = Poll.objects.all()  # Fetch all Poll objects from the database
-    return render(request, 'homepage.html' , {'polls': polls})
+    return render(request, 'home_page.html' , {'polls': polls})
 
 @login_required
 def account(request):
     return render(request, 'account.html')
 
 @login_required
-def electionPage(request):
+def election_page(request):
     polls = Poll.objects.all()  # Fetch all Poll objects from the database
-    return render(request, 'electionPage.html' , {'polls': polls})
+    return render(request, 'election_page.html' , {'polls': polls})
 
 @login_required
 def create_poll(request):
