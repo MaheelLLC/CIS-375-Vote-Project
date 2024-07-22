@@ -155,7 +155,13 @@ def submit_password(request):
         return redirect('home')  # Redirect to homepage for other methods
 
 def vote(request, slug):
-    poll = Poll.objects.get(slug=slug)
+    polls = Poll.objects.filter(slug=slug)
+    
+    if not polls.exists():
+        # Handle the case where no poll exists
+        return HttpResponse("No poll found", status=404)
+    
+    poll = polls.first()  # Get the first poll if multiple are found
     options = Poll_Option.objects.filter(poll=poll)
     
     msg = None
