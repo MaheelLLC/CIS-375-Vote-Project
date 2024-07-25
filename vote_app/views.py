@@ -56,11 +56,6 @@ def register_view(request):
     return render(request, 'vote_app/register_page.html', {'form': form})
 
 @login_required
-# def index(request):
-#     ls = Poll.objects.all()  # Retrieve all objects from Poll model
-#     output = ', '.join([p.name for p in ls])  # Example of accessing attribute, adjust as per your model fields
-#     return HttpResponse("<h1>%s</h1>" % output)
-
 def index(request):
     polls = Poll.objects.all()  # Retrieve all polls from the database
     return render(request, 'home_page.html', {'polls': polls})
@@ -105,47 +100,34 @@ def create_poll(request):
 def manage_elections(request):
     return render(request, 'manage_elections.html')
 
-# @csrf_exempt
-# @login_required
-# def submit_poll(request):
-#     # POST requests occur when submitting a form
-#     if request.method == 'POST':
-#         # Process form data (save poll, update database, etc.)
-#         # Example: Save poll data to the database
-#         question1 = request.POST.get('question1')
-#         option1_1 = request.POST.get('option1_1')
-
-#         # Redirect to homepage after successful submission
-#         return redirect('home')
-#     return redirect('create_poll')
 
 @csrf_exempt  # Only for demonstration; use proper CSRF protection in production
 @login_required
 def submit_poll(request):
     if request.method == 'POST':
-        question = request.POST.get('question1')
-        # options = request.POST.getlist("options")
-        option1 = request.POST.get('option1_1')
-        option2 = request.POST.get('option1_2')
+        questions = []
+        options = {}
 
-        # Create a new Poll instance
+        # Extract questions and options from POST data
+        for key, value in request.POST.items():
+            if key.startswith('question'):
+                question_number = key.replace('question', '')
+                questions.append(value)
+                options[question_number] = []
+            elif key.startswith('option'):
+                question_number, option_number = key.replace('option', '').split('_')
+                options[question_number].append(value)
+
+        # Create Poll instances for each question and their options
         user = request.user
-        poll = Poll.objects.create(name=question, user = user)
+        for question_number, question in enumerate(questions, start=1):
+            poll = Poll.objects.create(name=question, user=user)
+            for option in options[str(question_number)]:
+                Poll_Option.objects.create(poll=poll, text=option, votes=0)
 
-
-        # Create PollOption instances associated with the poll
-        Poll_Option.objects.create(poll=poll, text=option1, votes=0)
-        Poll_Option.objects.create(poll=poll, text=option2, votes=0)
-        all_polls = Poll.objects.all()
-        # Print each poll's name
-        for poll in all_polls:
-            print(f"Poll ID: {poll.id}, Name: {poll.name}")
-
-
-        return redirect('home')  # Redirect to home page or wherever appropriate
+        return redirect('home')
     else:
         return redirect('create_poll')  # Redirect back to create poll page if not a POST request
-
 
 @csrf_exempt
 @login_required
