@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
-{% load static %}
-
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account - Voting Project</title>
+    <title>{% block title %}Voting Project{% endblock %}</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/vote.css' %}">
     <style>
         body {
@@ -66,14 +65,17 @@
             margin-bottom: 10px;
         }
     </style>
+    {% block extra_head %}
+    {% endblock %}
 </head>
 <body>
 
 {% include 'navbar.html' %}
 
-{% block content %}
-
-{% endblock content %}
+<div class="container">
+    {% block content %}
+    {% endblock content %}
+</div>
 
 </body>
 </html>

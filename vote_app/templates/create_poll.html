@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Poll - Voting Project</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -161,6 +162,7 @@
 <div class="container">
     <h1>Create Poll</h1>
     <form method="POST" action="{% url 'submit_poll' %}">
+        {% csrf_token %}
         <div id="questions-container">
             <div class="question-block">
                 <label for="question1">Question 1:</label>
@@ -174,13 +176,12 @@
                         <label for="option1_2" class="option-label">Option 2:</label>
                         <input type="text" id="option1_2" name="option1_2" class="option-input" required>
                     </div>
-                    
                 </div>
-                <!-- <button type="button" class="add-option" onclick="addOption(1)">Add Another Option</button> -->
+                <button type="button" class="add-option" onclick="addOption(1)">Add Another Option</button>
             </div>
         </div>
         <div class="button-group">
-            <!-- <button type="button" class="add-question" onclick="addQuestion()">Add Another Question</button> -->
+            <button type="button" class="add-question" onclick="addQuestion()">Add Another Question</button>
             <button type="submit" class="publish">Publish Poll</button>
         </div>
     </form>
