@@ -1,7 +1,6 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
-
 from . import views
 
 urlpatterns = [
@@ -13,7 +12,7 @@ urlpatterns = [
     path('submit-poll/', login_required(views.submit_poll), name='submit_poll'),
     path('election_page/', login_required(views.election_page), name='election_page'),
     path('manage-elections/', login_required(views.manage_elections), name='manage_elections'),
-    path('change-password/', login_required(views.change_password), name='change_password'),
+    path('change-password/', auth_views.PasswordChangeView.as_view(template_name='vote_app/change_password.html', success_url='/vote/account/'), name='change_password'),  # Updated success_url
     path('submit-password/', login_required(views.submit_password), name='submit_password'),
     path('index/', login_required(views.index), name='index'),  # Root URL for the app
     path('index/<int:id>/', login_required(views.index_id), name='index_id'),  # URL with an integer ID
@@ -27,4 +26,5 @@ urlpatterns = [
     path('password_reset_confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
     path('<str:slug>/vote', views.vote, name='vote'),
+    path('delete_poll/<int:poll_id>/', views.delete_poll, name='delete_poll'),
 ]

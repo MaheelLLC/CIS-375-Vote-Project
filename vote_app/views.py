@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Poll, Poll_Option
 from django.contrib.auth.decorators import login_required
@@ -6,6 +5,23 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Poll
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+
+class CustomPasswordChangeView(PasswordChangeView):
+    template_name = 'vote_app/change_password.html'
+    success_url = reverse_lazy('account')  # Redirect to the account page after a successful password change
+
+@login_required
+def delete_poll(request, poll_id):
+    poll = get_object_or_404(Poll, id=poll_id, user=request.user)
+    if request.method == 'POST':
+        poll.delete()
+        return redirect('election_page')
+    return render(request, 'vote_app/delete_poll_confirm.html', {'poll': poll})
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -48,7 +64,7 @@ def register_view(request):
 def index(request):
     polls = Poll.objects.all()  # Retrieve all polls from the database
     return render(request, 'home_page.html', {'polls': polls})
-    
+
 
 @login_required
 def index_id(request, id):
@@ -115,7 +131,7 @@ def submit_poll(request):
         # Create a new Poll instance
         user = request.user
         poll = Poll.objects.create(name=question, user = user)
-        
+
 
         # Create PollOption instances associated with the poll
         Poll_Option.objects.create(poll=poll, text=option1, votes=0)
@@ -131,11 +147,11 @@ def submit_poll(request):
         return redirect('create_poll')  # Redirect back to create poll page if not a POST request
 
 
-@csrf_exempt  
+@csrf_exempt
 @login_required
 def delete_all_polls(request):
     Poll.objects.all().delete()
-    return redirect('home') 
+    return redirect('home')
 
 @login_required
 def change_password(request):
@@ -156,34 +172,34 @@ def submit_password(request):
 
 def vote(request, slug):
     polls = Poll.objects.filter(slug=slug)
-    
+
     if not polls.exists():
         # Handle the case where no poll exists
         return HttpResponse("No poll found", status=404)
-    
+
     poll = polls.first()  # Get the first poll if multiple are found
     options = Poll_Option.objects.filter(poll=poll)
-    
+
     msg = None
-    
+
     if poll.voters.filter(id=request.user.id).exists():
         msg = 'voted'
-        
+
     if request.method == 'POST':
         # selected option is the option id sent from template
         selected_option = request.POST.get("option")
         # option is the object that has that id
         option = Poll_Option.objects.get(id=selected_option)
-        
+
         option.votes += 1
         # add user to list of people who already voted
         poll.voters.add(request.user)
-        
+
         option.save()
         poll.save()
         # redirect to results when it exists
         return redirect('home')
-        
+
     context = {"poll": poll, "options": options, "msg": msg}
-    
+
     return render(request, "vote.html", context)

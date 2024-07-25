@@ -1,0 +1,14 @@
+<!-- vote_app/templates/vote_app/delete_poll_confirm.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Delete Election</h1>
+    <p>Are you sure you want to delete the election "{{ poll.name }}"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="button">Yes, delete</button>
+        <a href="{% url 'election_page' %}" class="button">Cancel</a>
+    </form>
+</div>
+{% endblock content %}
