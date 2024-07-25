@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="container">
     <h1>Account Settings</h1>
     <ul>
@@ -10,6 +9,9 @@
     </ul>
     <a href="{% url 'change_password' %}" class="button">Change Password</a>
     <a href="{% url 'manage_elections' %}" class="button">Manage Elections</a>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="button">Log Out</button>
+    </form>
 </div>
-
 {% endblock content %}

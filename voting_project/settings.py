@@ -138,7 +138,7 @@ SITE_ID = 1
 
 LOGIN_EXEMPT_URLS = [
     '/password_reset/',
-    '/password_reset_confirm/',  # This can be more specific if needed
+    '/password_reset_confirm/',
     '/signup/',
     '/login/',
     '/register/',
