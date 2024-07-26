@@ -117,6 +117,11 @@
             color: white;
             margin-left: 10px;
         }
+        button.remove-option, button.remove-question {
+            background-color: #f44336;
+            color: white;
+            margin-left: 10px;
+        }
     </style>
     <script>
         function addQuestion() {
@@ -138,6 +143,7 @@
                     </div>
                 </div>
                 <button type="button" class="add-option" onclick="addOption(${questionCount})">Add Another Option</button>
+                <button type="button" class="remove-question" onclick="removeQuestion(${questionCount})">Remove Question</button>
             `;
             container.appendChild(newQuestion);
         }
@@ -150,8 +156,19 @@
             newOption.innerHTML = `
                 <label for="option${questionNumber}_${optionCount}" class="option-label">Option ${optionCount}:</label>
                 <input type="text" id="option${questionNumber}_${optionCount}" name="option${questionNumber}_${optionCount}" class="option-input" required>
+                <button type="button" class="remove-option" onclick="removeOption(${questionNumber}, ${optionCount})">Remove Option</button>
             `;
             container.appendChild(newOption);
+        }
+
+        function removeQuestion(questionNumber) {
+            const questionBlock = document.getElementById(`question${questionNumber}`).parentElement;
+            questionBlock.remove();
+        }
+
+        function removeOption(questionNumber, optionNumber) {
+            const optionBlock = document.getElementById(`option${questionNumber}_${optionNumber}`).parentElement;
+            optionBlock.remove();
         }
     </script>
 </head>
@@ -178,6 +195,7 @@
                     </div>
                 </div>
                 <button type="button" class="add-option" onclick="addOption(1)">Add Another Option</button>
+                <button type="button" class="remove-question" onclick="removeQuestion(1)">Remove Question</button>
             </div>
         </div>
         <div class="button-group">
