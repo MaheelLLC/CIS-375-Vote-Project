@@ -7,7 +7,7 @@
     <!-- Centered create and manage election buttons -->
     <div>
         <a href="{% url 'create_poll' %}" class="button create">Create New Election</a>
-        <a href="{% url 'manage_elections' %}" class="button">Manage Your Elections</a>
+        {% comment %} <a href="{% url 'manage_elections' %}" class="button">Manage Your Elections</a> {% endcomment %}
     </div>
 
     <div class="election-list">
