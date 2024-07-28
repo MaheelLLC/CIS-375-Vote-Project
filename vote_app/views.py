@@ -16,7 +16,11 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 @login_required
 def delete_poll(request, poll_id):
-    poll = get_object_or_404(Poll, id=poll_id, user=request.user)
+    try:
+        poll = Poll.objects.get(id=poll_id, user=request.user)
+    except:
+        return redirect('election_page')
+    # poll = get_object_or_404(Poll, id=poll_id, user=request.user)
     if request.method == 'POST':
         poll.delete()
         return redirect('election_page')
