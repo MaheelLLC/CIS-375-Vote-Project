@@ -4,7 +4,7 @@
     <div class="menu">
         <a href="{% url 'election_page' %}">Election Page</a>
         <a href="{% url 'create_poll' %}">Create Election</a>
-        <a href="{% url 'manage_elections' %}">Manage Elections</a>
+        {% comment %} <a href="{% url 'manage_elections' %}">Manage Elections</a> {% endcomment %}
         <a href="{% url 'about' %}">About</a>
         <a href="{% url 'account' %}">Account</a>
     </div>

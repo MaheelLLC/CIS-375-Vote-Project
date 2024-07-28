@@ -129,7 +129,6 @@ def submit_poll(request):
     else:
         return redirect('create_poll')  # Redirect back to create poll page if not a POST request
 
-@csrf_exempt
 @login_required
 def delete_all_polls(request):
     Poll.objects.all().delete()
@@ -140,7 +139,6 @@ def change_password(request):
     # Handle change password logic
     return render(request, 'change_password.html')
 
-@csrf_exempt
 @login_required
 def submit_password(request):
     # POST requests occur when submitting a form
@@ -153,13 +151,11 @@ def submit_password(request):
         return redirect('home')  # Redirect to homepage for other methods
 
 def vote(request, slug):
-    polls = Poll.objects.filter(slug=slug)
+    # Each slug is unique, so only one poll object will be returned with get
+    # rather than a dictionary with a single object using filter
+    poll = get_object_or_404(Poll, slug=slug)
+    # Nice catch with the error handling of no poll being returned though
 
-    if not polls.exists():
-        # Handle the case where no poll exists
-        return HttpResponse("No poll found", status=404)
-
-    poll = polls.first()  # Get the first poll if multiple are found
     options = Poll_Option.objects.filter(poll=poll)
 
     msg = None
@@ -169,8 +165,9 @@ def vote(request, slug):
 
     if request.method == 'POST':
         # selected option is the option id sent from template
+        # request.POST includes {"option" : option.id}
         selected_option = request.POST.get("option")
-        # option is the object that has that id
+        # option is the object that has this id
         option = Poll_Option.objects.get(id=selected_option)
 
         option.votes += 1

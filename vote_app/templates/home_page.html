@@ -1,58 +1,6 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting Project</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar .title {
-            color: #f2f2f2;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
-        .navbar .menu {
-            display: flex;
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .navbar .active {
-            background-color: #4CAF50; /* Highlight color */
-            color: white;
-        }
-    </style>
-</head>
-<body>
-
-{% include 'navbar.html' %}
-
-<!-- <div class="content">
-    <h1>This is the Home Page</h1>
-    <p>This is where all the active polls will be located</p>
-</div> -->
+{% block content %}
 <div class="content">
     <form action="{% url 'delete_polls' %}" method="post">
         {% csrf_token %}
@@ -76,6 +24,4 @@
     {% endif %}
 </div>
 
-</div>
-</body>
-</html>
+{% endblock content %}
