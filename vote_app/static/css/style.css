@@ -35,7 +35,9 @@ body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
+	background-color: #f4f4f4;
 }
+
 .navbar {
 	overflow: hidden;
 	background-color: #333;
@@ -43,15 +45,18 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
+
 .navbar .title {
 	color: #f2f2f2;
 	padding: 14px 20px;
 	text-decoration: none;
 	font-size: 1.5em;
 }
+
 .navbar .menu {
 	display: flex;
 }
+
 .navbar a {
 	float: left;
 	display: block;
@@ -60,10 +65,12 @@ body {
 	padding: 14px 20px;
 	text-decoration: none;
 }
+
 .navbar a:hover {
 	background-color: #ddd;
 	color: black;
 }
+
 .navbar .active {
 	background-color: #4CAF50; /* Highlight color */
 	color: white;
@@ -78,6 +85,7 @@ body {
 	margin-top: 20px;
 	text-align: center;
 }
+
 h1 {
 	text-align: center;
 }
@@ -86,6 +94,7 @@ ul {
 	list-style-type: none;
 	padding: 0;
 }
+
 li {
 	margin-bottom: 10px;
 }
@@ -101,20 +110,25 @@ li {
 	cursor: pointer;
 	margin: 10px;
 }
+
 .button:hover {
 	background-color: #45a049;
 }
+
 .button.create {
 	background-color: #007BFF;
 }
+
 .button.create:hover {
 	background-color: #0056b3;
 }
+
 .election-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
+
 .election-item {
 	background: #f4f4f4;
 	margin: 10px;
@@ -123,13 +137,16 @@ li {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	position: relative;
 }
+
 .election-item ul {
 	list-style-type: none;
 	padding: 0;
 }
+
 .election-item li {
 	margin-bottom: 10px;
 }
+
 .vote-link {
 	display: inline-block;
 	padding: 10px;
@@ -139,9 +156,11 @@ li {
 	border-radius: 4px;
 	transition: background-color 0.3s ease;
 }
+
 .vote-link:hover {
 	background-color: #45a049;
 }
+
 .delete-button {
 	position: absolute;
 	top: 10px;
@@ -156,7 +175,88 @@ li {
 	cursor: pointer;
 	font-size: 16px;
 	line-height: 30px;
+	padding: 1px 6px;
 }
+
 .delete-button:hover {
 	background: #e31b0c;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.question-block {
+	margin-bottom: 20px;
+}
+
+.question-block label {
+	display: block;
+	margin: 10px 0 5px;
+	font-weight: bold;
+}
+
+.option-container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.option-label {
+	margin-right: 10px;
+	font-weight: normal;
+}
+
+.option-input {
+	padding: 10px;
+	font-size: 1em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	flex-grow: 1;
+}
+
+input[type="text"] {
+	padding: 10px;
+	font-size: 1em;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.button-group {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 1em;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+button.add-question {
+	background-color: #4CAF50;
+	color: white;
+}
+
+button.publish {
+	background-color: #333;
+	color: white;
+}
+
+button.add-option {
+	background-color: #4CAF50;
+	color: white;
+	margin-left: 10px;
+}
+
+button.remove-option, button.remove-question {
+	background-color: #f44336;
+	color: white;
+	margin-left: 10px;
 }
