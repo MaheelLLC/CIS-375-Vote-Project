@@ -8,10 +8,9 @@
         <li><strong>Email:</strong> {{ user.email }}</li>
     </ul>
     <a href="{% url 'change_password' %}" class="button">Change Password</a>
-    <a href="{% url 'manage_elections' %}" class="button">Manage Elections</a>
-    <form method="POST" action="{% url 'logout' %}">
+    <form method="POST" action="{% url 'logout' %}" style="display: inline;">
         {% csrf_token %}
-        <button type="submit" class="button">Log Out</button>
+        <button type="submit" class="logout-button">Log Out</button>
     </form>
 </div>
 {% endblock content %}

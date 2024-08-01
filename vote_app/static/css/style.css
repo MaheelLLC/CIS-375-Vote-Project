@@ -181,7 +181,20 @@ li {
 .delete-button:hover {
 	background: #e31b0c;
 }
+.logout-button {
+     background-color: red;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     padding: 5px 10px; /* Smaller padding for a smaller button */
+     cursor: pointer;
+     font-size: 0.9em; /* Smaller font size */
+     display: inline-block; /* Ensures the button doesn't take full width */
+}
 
+.logout-button:hover {
+   background-color: darkred;
+}
 form {
 	display: flex;
 	flex-direction: column;
