@@ -9,23 +9,28 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Poll
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
+from django.contrib import messages
+
 
 class CustomPasswordChangeView(PasswordChangeView):
     template_name = 'vote_app/change_password.html'
     success_url = reverse_lazy('account')  # Redirect to the account page after a successful password change
 
+
 @login_required
 def delete_poll(request, poll_id):
     try:
         poll = Poll.objects.get(id=poll_id, user=request.user)
-    except:
+    except Poll.DoesNotExist:
+        messages.error(request, "You do not have permission to delete this poll.")
         return redirect('election_page')
-    # poll = get_object_or_404(Poll, id=poll_id, user=request.user)
+
     if request.method == 'POST':
         poll.delete()
+        messages.success(request, "Poll deleted successfully.")
         return redirect('election_page')
-    return render(request, 'vote_app/delete_poll_confirm.html', {'poll': poll})
 
+    return render(request, 'vote_app/delete_poll_confirm.html', {'poll': poll})
 
 def login_view(request):
     if request.method == 'POST':

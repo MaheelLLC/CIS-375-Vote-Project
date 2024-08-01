@@ -273,3 +273,22 @@ button.remove-option, button.remove-question {
 	color: white;
 	margin-left: 10px;
 }
+
+.messages {
+    margin-bottom: 20px;
+}
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
